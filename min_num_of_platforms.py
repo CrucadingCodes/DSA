@@ -17,6 +17,27 @@ def findPlatforms(arr, dep, n):
                     plat_needed += 1
         result = max(result, plat_needed) 
     return result
+def Platfroms(arr, dep, n):
+    arr.sort()
+    dep.sort()
+
+    plat_needed = 1
+    result = 1
+    i = 1
+    j = 0
+
+    while (i < n and j < n):
+        if (arr[i] <= dep[j]):
+            plat_needed += 1
+            i += 1
+
+        elif (arr[i] > dep[j]):
+            plat_needed -= 1
+            j += 1
+
+        if (plat_needed > result):
+            result = plat_needed
+    return result                
 
 def main ():
     arr = [900, 940, 950, 1100, 1500, 1800]
